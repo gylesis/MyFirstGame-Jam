@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class Door : InteractableObject {
 
     enum DoorState {
@@ -38,7 +37,7 @@ public class Door : InteractableObject {
     }
 
     public override void OnAction() {
-        switch (State) {
+        switch (state) {
             case DoorState.Opened:
                 Close();
                 break;

@@ -10,6 +10,8 @@ public class InteractableObject : MonoBehaviour {
 
     string interactMessage;
 
+    public bool outlineIsOn = false;
+
     virtual public void OnAction() {
         Debug.Log("не работает чумба");
     }
@@ -17,16 +19,18 @@ public class InteractableObject : MonoBehaviour {
     public void OnEnter() {
         if (outline == null) return;
         outline.enabled = true;
+        outlineIsOn = true;
     }
 
     public void OnExit() {
         if (outline == null) return;
-        OutlineTurningOff();
+        StartCoroutine(OutlineTurningOff());
     }
 
     IEnumerator OutlineTurningOff() {
         yield return new WaitForSeconds(0.3f);
         outline.enabled = false;
+        outlineIsOn = false;
     }
 }
 

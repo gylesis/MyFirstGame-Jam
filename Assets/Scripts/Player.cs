@@ -20,6 +20,10 @@ public class Player : MonoBehaviour {
     [SerializeField]
     Camera camera;
 
+    InteractableObject interactableObject;
+
+    // Vector3 gg;
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -77,21 +81,27 @@ public class Player : MonoBehaviour {
 
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        InteractableObject interactableObject;
         if (Physics.Raycast(ray, out var hitInfo, maxDistance: 5f)) {
 
-            if (hitInfo.collider.TryGetComponent(out interactableObject)) {
+
+            // gg = hitInfo.point;
+            if (hitInfo.collider.TryGetComponent<InteractableObject>(out var interactableObject1)) {
+                interactableObject = interactableObject1;
+                Debug.Log("DoorHit");
                 interactableObject.OnEnter();
                 if (Input.GetMouseButtonDown(0)) {
                     interactableObject.OnAction();
                 }
-
             }
             else {
                 interactableObject.OnExit();
             }
 
         }
+    }
+
+    private void OnDrawGizmos() {
+        //     Gizmos.DrawLine(camera.transform.position, gg);
     }
 
 }
