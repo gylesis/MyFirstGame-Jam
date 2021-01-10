@@ -196,49 +196,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1362512038}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &80138933
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 80138934}
-  - component: {fileID: 80138935}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &80138934
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80138933}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9134016, y: -0.3811562, z: -21.40137}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &80138935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80138933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476fad80fbe42ac4da4b3ebe74b0a92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &154792436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6265885535420471128, guid: c5714cb40bcaf804d9f8c09fc496e943,
@@ -467,6 +424,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1042086382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &315698012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315698013}
+  - component: {fileID: 315698015}
+  - component: {fileID: 315698014}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &315698013
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315698012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.24, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 870313120}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 4, y: -340}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &315698014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315698012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 77405e137c2e9be4eb46e549d5e6e387, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &315698015
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315698012}
+  m_CullTransparentMesh: 0
 --- !u!1 &377677146
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 402633663}
+  interactMessage: 
   outlineIsOn: 0
   number: 6
 --- !u!114 &402633663
@@ -1633,6 +1665,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 315698013}
   - {fileID: 1667231452}
   - {fileID: 872899116}
   m_Father: {fileID: 1757207221}
@@ -1710,7 +1743,7 @@ RectTransform:
   m_LocalScale: {x: 0.08, y: 0.08, z: 1}
   m_Children: []
   m_Father: {fileID: 870313120}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1802,6 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 881620334}
+  interactMessage: 
   outlineIsOn: 0
   action: Cancel
 --- !u!114 &881620334
@@ -2263,6 +2297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1076432078}
+  interactMessage: 
   outlineIsOn: 0
   number: 7
 --- !u!114 &1076432078
@@ -2469,6 +2504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1104150147}
+  interactMessage: 
   outlineIsOn: 0
   number: 4
 --- !u!4 &1124870998 stripped
@@ -2735,6 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1225906028}
+  interactMessage: 
   outlineIsOn: 0
   number: 6
 --- !u!1 &1256587310
@@ -3053,6 +3090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1286368882}
+  interactMessage: 
   outlineIsOn: 0
   number: 5
 --- !u!1001 &1332429242
@@ -3488,6 +3526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1398090710}
+  interactMessage: 
   outlineIsOn: 0
   number: 2
 --- !u!4 &1415297130 stripped
@@ -3803,6 +3842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: outlineWidth
       value: 4.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6456681236011510331, guid: 1e5c80292b891c04ea5b9f9f091a62e2,
+        type: 3}
+      propertyPath: interactMessage
+      value: Open
       objectReference: {fileID: 0}
     - target: {fileID: 6456681236148070336, guid: 1e5c80292b891c04ea5b9f9f091a62e2,
         type: 3}
@@ -4147,7 +4191,7 @@ GameObject:
   - component: {fileID: 1667231454}
   - component: {fileID: 1667231453}
   m_Layer: 5
-  m_Name: Interact message
+  m_Name: InteractMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4165,11 +4209,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 870313120}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -362}
+  m_AnchoredPosition: {x: 8, y: -341}
   m_SizeDelta: {x: 346.16, y: 49.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1667231453
@@ -4391,8 +4435,9 @@ GameObject:
   - component: {fileID: 1757207220}
   - component: {fileID: 1757207219}
   - component: {fileID: 1757207218}
+  - component: {fileID: 1757207222}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4478,6 +4523,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1757207222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757207217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476fad80fbe42ac4da4b3ebe74b0a92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1774121952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,6 +4616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1825865131}
+  interactMessage: 
   outlineIsOn: 0
   action: Accept
 --- !u!114 &1825865131
@@ -5184,6 +5242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 1961132517}
+  interactMessage: 
   outlineIsOn: 0
   number: 9
 --- !u!114 &1961132517
@@ -5557,6 +5616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2056562421}
+  interactMessage: 
   outlineIsOn: 0
   number: 1
 --- !u!1001 &2074226106
@@ -5823,6 +5883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 2090630400}
+  interactMessage: 
   outlineIsOn: 0
   number: 3
 --- !u!1001 &2110967323

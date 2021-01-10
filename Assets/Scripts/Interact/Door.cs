@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Door : InteractableObject {
 
@@ -11,7 +12,6 @@ public class Door : InteractableObject {
         Locked
     }
 
-    [SerializeField]
     DoorState state = DoorState.Closed;
 
     DoorState State {
@@ -19,14 +19,13 @@ public class Door : InteractableObject {
             return state;
         }
         set {
-            Debug.Log("Changed");
-         //   OnChangeState();
+            GameManager.TextForInteractableObj.text = state.ToString();
             state = value;
         }
     }
 
     void OnChangeState() {
-        switch (state) {
+        switch (State) {
             case DoorState.Opened:
                 Close();
                 break;
@@ -52,12 +51,12 @@ public class Door : InteractableObject {
 
     void Open() {
         transform.rotation = Quaternion.Euler(0, 90, 0);
-        state = DoorState.Opened;
+        State = DoorState.Opened;
     }
 
     void Close() {
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        state = DoorState.Closed;
+        State = DoorState.Closed;
     }
 
     void Locked() {

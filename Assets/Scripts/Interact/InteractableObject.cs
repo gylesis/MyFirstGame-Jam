@@ -8,6 +8,7 @@ public class InteractableObject : MonoBehaviour {
     [SerializeField]
     Outline outline;
 
+    [SerializeField]
     string interactMessage;
 
     public bool outlineIsOn = false;
@@ -17,12 +18,15 @@ public class InteractableObject : MonoBehaviour {
     }
 
     public void OnEnter() {
+        GameManager.TextForInteractableObj.enabled = true;
+        GameManager.TextForInteractableObj.text = interactMessage;
         if (outline == null) return;
         outline.enabled = true;
         outlineIsOn = true;
     }
 
     public void OnExit() {
+        GameManager.TextForInteractableObj.enabled = false;
         if (outline == null) return;
         StartCoroutine(OutlineTurningOff());
     }
