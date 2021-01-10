@@ -17,6 +17,9 @@ public class Player : MonoBehaviour {
 
     public static Transform rb;
 
+    [SerializeField]
+    Camera camera;
+
     [HideInInspector]
     public bool canMove = true;
 
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour {
 
     void Update() {
         Move();
+        RayCasting();
     }
 
     void Initialization() {
@@ -66,6 +70,27 @@ public class Player : MonoBehaviour {
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }
+    }
+
+    void RayCasting() {
+
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+
+        InteractableObject interactableObject;
+        if (Physics.Raycast(ray, out var hitInfo, maxDistance: 5f)) {
+
+            if (hitInfo.collider.TryGetComponent(out interactableObject)) {
+                interactableObject.OnEnter();
+                if (Input.GetMouseButtonDown(0)) {
+                    interactableObject.OnAction();
+                }
+
+            }
+            else {
+                interactableObject.OnExit();
+            }
+
         }
     }
 
