@@ -21,9 +21,10 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Start() {
-        Cursor.visible = false;
+       // Cursor.lockState = CursorLockMode.Locked;
+      //  Cursor.visible = false;
         Instance = this;
-        textForInteractableObj = transform.Find("Interact message").GetComponent<Text>();
+        textForInteractableObj = transform.Find("InteractMessage").GetComponent<Text>();
     }
 
     void Update()

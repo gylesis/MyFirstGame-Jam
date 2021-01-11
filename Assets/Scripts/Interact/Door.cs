@@ -12,6 +12,12 @@ public class Door : InteractableObject {
         Locked
     }
 
+    [SerializeField]
+    string textOnOpen;
+
+    [SerializeField]
+    string textOnClose;
+
     DoorState state = DoorState.Closed;
 
     DoorState State {
@@ -19,7 +25,6 @@ public class Door : InteractableObject {
             return state;
         }
         set {
-            GameManager.TextForInteractableObj.text = state.ToString();
             state = value;
         }
     }
@@ -38,9 +43,11 @@ public class Door : InteractableObject {
     public override void OnAction() {
         switch (state) {
             case DoorState.Opened:
+                interactMessage = textOnOpen;
                 Close();
                 break;
             case DoorState.Closed:
+                interactMessage = textOnClose;
                 Open();
                 break;
             case DoorState.Locked:

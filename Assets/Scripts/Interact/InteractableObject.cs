@@ -9,7 +9,7 @@ public class InteractableObject : MonoBehaviour {
     Outline outline;
 
     [SerializeField]
-    string interactMessage;
+    protected string interactMessage;
 
     public bool outlineIsOn = false;
 

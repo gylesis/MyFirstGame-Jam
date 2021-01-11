@@ -2,78 +2,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
-    public float walkingSpeed = 7.5f;
-    public float runningSpeed = 11.5f;
-    public float jumpSpeed = 8.0f;
-    public float gravity = 20.0f;
-    public Transform playerCamera;
-    public float lookSpeed = 2.0f;
-    public float lookXLimit = 45.0f;
-
-    CharacterController characterController;
-    Vector3 moveDirection = Vector3.zero;
-    float rotationX = 0;
-
-    public static Transform rb;
+public class Player : MonoBehaviour { 
 
     [SerializeField]
     Camera camera;
 
     InteractableObject interactableObject;
 
-    // Vector3 gg;
+    [SerializeField]
+    Rigidbody rb;
 
-    [HideInInspector]
     public bool canMove = true;
+
+    [SerializeField]
+    float moveSpeed = 2f;
 
     private void Start() {
         Initialization();
     }
 
     void Update() {
-        Move();
-        RayCasting();
+      //  RayCasting();
+        Movement();
     }
 
     void Initialization() {
-        characterController = GetComponent<CharacterController>();
-        rb = GetComponent<Transform>();
+    
     }
 
-    void Move() {
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
-        // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
-        float movementDirectionY = moveDirection.y;
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded) {
-            moveDirection.y = jumpSpeed;
+    void Movement() {
+      //  if (canMove) {
+            var movePos = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+            movePos *= moveSpeed * Time.deltaTime;
+
+            rb.AddForce(movePos,ForceMode.VelocityChange);
+
+       // }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.collider.tag == "Ground") {
+            canMove = true;
         }
-        else {
-            moveDirection.y = movementDirectionY;
-        }
-
-        // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
-        // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
-        // as an acceleration (ms^-2)
-        if (!characterController.isGrounded) {
-            moveDirection.y -= gravity * Time.deltaTime;
-        }
-
-        // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
-
-        // Player and Camera rotation
-        if (canMove) {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+    }
+    private void OnCollisionExit(Collision collision) {
+        if (collision.collider.tag == "Ground") {
+            canMove = false;
         }
     }
 
@@ -81,13 +56,11 @@ public class Player : MonoBehaviour {
 
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out var hitInfo, maxDistance: 5f)) {
+        if (Physics.Raycast(ray, out var hitInfo, maxDistance: 10f)) {
 
-
-            // gg = hitInfo.point;
+            //  gg = hitInfo.point;
             if (hitInfo.collider.TryGetComponent<InteractableObject>(out var interactableObject1)) {
                 interactableObject = interactableObject1;
-                Debug.Log("DoorHit");
                 interactableObject.OnEnter();
                 if (Input.GetMouseButtonDown(0)) {
                     interactableObject.OnAction();
@@ -101,7 +74,7 @@ public class Player : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        //     Gizmos.DrawLine(camera.transform.position, gg);
+     //   Gizmos.DrawLine(camera.transform.position, gg);
     }
 
 }
