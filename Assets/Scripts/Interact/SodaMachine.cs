@@ -11,10 +11,10 @@ public class SodaMachine : InteractableObject {
     Vector3 posToSpawn;
 
     public override void OnAction() {
-        Destroy(Instantiate(sodaPrefab, posToSpawn, Quaternion.Euler(0, 0, 90)), 5f);
+        Destroy(Instantiate(sodaPrefab, transform.position + posToSpawn, Quaternion.Euler(0, 0, 90)), 5f);
     }
 
     private void OnDrawGizmosSelected() {
-        Gizmos.DrawWireSphere(posToSpawn, 0.1f);
+        Gizmos.DrawWireSphere(transform.position + posToSpawn, 0.1f);
     }
 }

@@ -112,7 +112,7 @@ MonoBehaviour:
   outlineIsOn: 0
   sodaPrefab: {fileID: 5169869355988900970, guid: 3409f17da7b8ef547b9eaff2c893b937,
     type: 3}
-  posToSpawn: {x: -1.19, y: 5.65, z: 6.71}
+  posToSpawn: {x: 0, y: 2.41, z: 1.83}
 --- !u!114 &7295534840927231750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7295534840927231868}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
